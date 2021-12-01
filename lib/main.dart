@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_minimal_internationalization/local_app.dart';
+import 'package:flutter_minimal_internationalization/minimal_localization.dart';
+import 'package:flutter_minimal_internationalization/minimal_localization_delegate.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,35 +15,20 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      onGenerateTitle: (context) => MinimalLocalization.of(context).title,
+      localizationsDelegates: const [
+        MinimalLocalizationDelegate(),
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('en', ''),
+        Locale('es', ''),
+      ],
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Minimal internationalization'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: const Center(
-        child: Text(
-          "Minimal internationalization",
-        ),
-      ),
+      home: const LocalApp(),
     );
   }
 }
