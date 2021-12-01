@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      onGenerateTitle: (context) => MinimalLocalization.of(context).title,
+      onGenerateTitle: (context) => getTranslatedText(context, "title"),
       localizationsDelegates: const [
         MinimalLocalizationDelegate(),
         GlobalMaterialLocalizations.delegate,
