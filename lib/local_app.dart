@@ -15,7 +15,7 @@ class LocalApp extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(MinimalLocalization.of(context).getValue("title")),
-            Text(getTranslatedText(context, "title")),
+            Text(getTranslatedText(context, "subTitle")),
           ],
         ),
       ),

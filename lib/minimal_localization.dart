@@ -8,10 +8,8 @@ class MinimalLocalization {
       Localizations.of<MinimalLocalization>(context, MinimalLocalization)!;
 
   static const _localizedValues = <String, Map<String, String>>{
-    "en": {
-      "title": "Hello World",
-    },
-    "es": {"title": "Hola Mundo"}
+    "en": {"title": "Hello World", "subTitle": "Welcome to Homescreen"},
+    "es": {"title": "Hola Mundo","subTitle": "Bienvenido a la pantalla de inicio"}
   };
 
   static List<String> languages() => _localizedValues.keys.toList();
