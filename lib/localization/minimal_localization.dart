@@ -8,7 +8,7 @@ class MinimalLocalization {
   static MinimalLocalization of(BuildContext context) =>
       Localizations.of<MinimalLocalization>(context, MinimalLocalization)!;
 
-  static const _localizedValues = minimalLangs;
+  static const _localizedValues = MinimalLanguages.minimalLangs;
 
   static List<String> languages() => _localizedValues.keys.toList();
 
