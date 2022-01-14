@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_minimal_internationalization/locale_provider.dart';
 import 'package:flutter_minimal_internationalization/localization/minimal_localization.dart';
+import 'package:provider/provider.dart';
 
 class LocalApp extends StatefulWidget {
   const LocalApp({Key? key}) : super(key: key);
@@ -37,6 +39,16 @@ class _LocalAppState extends State<LocalApp> {
                   onChanged: (String? newValue) {
                     setState(() {
                       dropDownValue = newValue!;
+                      if (dropDownValue == "English") {
+                        context.read<LocaleProvider>().setLocale =
+                            const Locale("en", "");
+                      } else if (dropDownValue == "Spanish") {
+                        context.read<LocaleProvider>().setLocale =
+                            const Locale("es", "");
+                      } else if (dropDownValue == "Arabic") {
+                        context.read<LocaleProvider>().setLocale =
+                            const Locale("ar", "");
+                      }
                     });
                   },
                   items: <String>['English', 'Spanish', 'Arabic']
