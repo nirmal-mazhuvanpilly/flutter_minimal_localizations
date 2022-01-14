@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_minimal_internationalization/minimal_lang.dart';
+import 'package:flutter_minimal_internationalization/localization/minimal_lang.dart';
 
 class MinimalLocalization {
   final Locale? locale;

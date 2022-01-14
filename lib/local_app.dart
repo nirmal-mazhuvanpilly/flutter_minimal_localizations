@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_minimal_internationalization/minimal_localization.dart';
+import 'package:flutter_minimal_internationalization/localization/minimal_localization.dart';
 
 class LocalApp extends StatelessWidget {
   const LocalApp({Key? key}) : super(key: key);

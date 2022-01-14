@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_minimal_internationalization/minimal_localization.dart';
+import 'package:flutter_minimal_internationalization/localization/minimal_localization.dart';
 
 class MinimalLocalizationDelegate
     extends LocalizationsDelegate<MinimalLocalization> {
