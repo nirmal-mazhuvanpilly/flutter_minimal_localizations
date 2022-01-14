@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_minimal_internationalization/localization/minimal_localization.dart';
 
-class LocalApp extends StatelessWidget {
+class LocalApp extends StatefulWidget {
   const LocalApp({Key? key}) : super(key: key);
+
+  @override
+  State<LocalApp> createState() => _LocalAppState();
+}
+
+class _LocalAppState extends State<LocalApp> {
+  String dropDownValue = "English";
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +23,32 @@ class LocalApp extends StatelessWidget {
           children: [
             Text(MinimalLocalization.of(context).getValue("title")),
             Text(getTranslatedText(context, "subTitle")),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                const Text("Choose Language"),
+                const SizedBox(width: 10),
+                DropdownButton<String>(
+                  value: dropDownValue,
+                  icon: const Icon(Icons.arrow_downward),
+                  elevation: 16,
+                  style: const TextStyle(color: Colors.deepPurple),
+                  onChanged: (String? newValue) {
+                    setState(() {
+                      dropDownValue = newValue!;
+                    });
+                  },
+                  items: <String>['English', 'Spanish', 'Arabic']
+                      .map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+                ),
+              ],
+            )
           ],
         ),
       ),
